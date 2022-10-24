@@ -13,6 +13,10 @@ public abstract class Food implements Consumable{
         this.name = name;
     }
 
+    public void show(){
+        System.out.println(name);
+    }
+
     @Override
     public String toString(){
         return name;

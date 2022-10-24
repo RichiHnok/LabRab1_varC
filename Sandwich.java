@@ -29,6 +29,11 @@ public class Sandwich extends Food {
     }
 
     @Override
+    public void show(){
+        System.out.println("Sandwich with " + filling1 + " and " + filling2);
+    }
+
+    @Override
     public boolean equals(Object obj){
         if(this == obj) // сравниваем ссылки
             return true;
