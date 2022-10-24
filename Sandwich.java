@@ -1,36 +1,44 @@
-public class Sandwich extends Food {
-    private String filling1;
-    private String filling2;
+import java.util.HashSet;
+import java.util.Iterator;
 
-    public Sandwich(String filling1, String filling2){
+public class Sandwich extends Food {
+    private HashSet<String> fillings = new HashSet<>();
+
+    public Sandwich(String[] fillings){
         super("Sandwich");
-        this.filling1 = filling1;
-        this.filling2 = filling2;
+        for(String filling : fillings){
+            this.fillings.add(filling);
+        }
     }
 
     public Sandwich(){
         super("Sandwich");
-        filling1 = null;
-        filling2 = null;
+
     }
 
-    public String getFilling1(){
-        return this.filling1;
-    }
-    public void setFilling1(String filling1){
-        this.filling1 = filling1;
-    }
-
-    public String getFilling2(){
-        return this.filling2;
-    }
-    public void setFilling2(String filling2){
-        this.filling2 = filling2;
+    public String[] getFillings(){
+        String[] fillings = new String[this.fillings.size()];
+        int i=0;
+        for(String filling : this.fillings){
+            fillings[i] = filling;
+            i++;
+        }
+        return fillings;
     }
 
     @Override
     public void show(){
-        System.out.println("Sandwich with " + filling1 + " and " + filling2);
+        System.out.print("Sandwich with ");
+        Iterator<String> filling = fillings.iterator();
+        while(filling.hasNext()){
+            System.out.print(filling.next());
+
+            if(filling.hasNext()){
+                System.out.print(", ");
+            }else{
+                System.out.println(".");
+            }
+        }
     }
 
     @Override
@@ -40,9 +48,6 @@ public class Sandwich extends Food {
         if(obj == null || getClass() != obj.getClass()) // проверка на принадлежность нужному классу
             return false;
         Sandwich sandwich = (Sandwich) obj; // преобразование к нужному классу
-        return( 
-            this.filling1.equals(sandwich.filling1) && this.filling2.equals(sandwich.filling2) ||
-            this.filling1.equals(sandwich.filling2) && this.filling2.equals(sandwich.filling1)
-        ); // сравниваем поля объектов
+        return(this.fillings.equals(sandwich.fillings)); // сравниваем поля объектов
     }
 }

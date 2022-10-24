@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.HashMap;
 
@@ -16,7 +17,7 @@ public class Breakfast {
         ){
 
         }
-        Sandwich sandwich = new Sandwich(set[1], set[2]);
+        Sandwich sandwich = new Sandwich(Arrays.copyOfRange(set, 1, set.length));
         breakfast.add(sandwich);
     }
 
