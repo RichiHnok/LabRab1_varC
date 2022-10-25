@@ -21,6 +21,9 @@ public class MainApplication {
                 case "-add":
                     breakfast.addFood(console);
                     break;
+                case "-sort":
+                    breakfast.sort();
+                    break;
                 case "-show":
                     breakfast.show();
                     break;
@@ -31,6 +34,7 @@ public class MainApplication {
                     System.out.println("The following commands are available:");
                     System.out.println("-add  (Adds to breakfast another sandwich with 2 fillings)");
                     System.out.println("-count  (Counts amount of choosen meal)");
+                    System.out.println("-sort  (Sorts list by word length)");
                     System.out.println("-show (Show from what breakfast consits)");
                     System.out.println("-help (Show available commands and its functions)");
                     System.out.println("-exit (Completes programm)");
