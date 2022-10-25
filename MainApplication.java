@@ -24,9 +24,13 @@ public class MainApplication {
                 case "-show":
                     breakfast.show();
                     break;
+                case "-count":
+                    breakfast.showCount(console);
+                    break;
                 case "-help":
                     System.out.println("The following commands are available:");
                     System.out.println("-add  (Adds to breakfast another sandwich with 2 fillings)");
+                    System.out.println("-count  (Counts amount of choosen meal)");
                     System.out.println("-show (Show from what breakfast consits)");
                     System.out.println("-help (Show available commands and its functions)");
                     System.out.println("-exit (Completes programm)");

@@ -28,7 +28,7 @@ public class Sandwich extends Food {
 
     @Override
     public void show(){
-        System.out.print("Sandwich with ");
+        System.out.print(getName() + " with ");
         Iterator<String> filling = fillings.iterator();
         while(filling.hasNext()){
             System.out.print(filling.next());
@@ -48,6 +48,6 @@ public class Sandwich extends Food {
         if(obj == null || getClass() != obj.getClass()) // проверка на принадлежность нужному классу
             return false;
         Sandwich sandwich = (Sandwich) obj; // преобразование к нужному классу
-        return(this.fillings.equals(sandwich.fillings)); // сравниваем поля объектов
+        return(this.fillings.equals(sandwich.fillings)); // сравниваем поле объектов
     }
 }
