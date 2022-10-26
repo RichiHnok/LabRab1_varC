@@ -2,11 +2,11 @@ import java.util.ArrayList;
 // import java.util.Arrays;
 import java.util.Scanner;
 // import java.util.HashMap;
-// import java.util.Comparator;
+import java.util.Comparator;
 import java.util.StringTokenizer;
 // import java.util.HashSet;
 // import java.util.Iterator;
-// import java.util.Collections;
+import java.util.Collections;
 
 public class Breakfast{
     public ArrayList<Food> breakfast = new ArrayList<>();
@@ -91,28 +91,21 @@ public class Breakfast{
     }
 
     public void sort(){
-        // Collections.sort(breakfast, new Comparator<Food>() {
-        //     public int compare(Object f1, Food f2){
-        //         (f1.getClass() f1);
-        //         if(f1 == null) return 1;
-        //         if(f2 == null) return -1;
-        //         // int len1=0;
-        //         // int len2=0;
-        //         // for(String filling : ((Sandwich) f1).getFillings()){
-        //         //     len1 += filling.length();
-        //         // }
-        //         // for(String filling : ((Sandwich) f2).getFillings()){
-        //         //     len2 += filling.length();
-        //         // }
-        //         // if(len1 > len2)
-        //         //     return 1;
-        //         // if(len2 > len1)
-        //         //     return -1;
-        //         return 0;
-        //     }
-        // });
+        Collections.sort(breakfast, new Comparator<Food>(){
+            public int compare(Food f1, Food f2){
+                if(f1 == null) return 1;
+                if(f2 == null) return -1;
+                int len1 = f1.toString().length();
+                int len2 = f2.toString().length();
+                if(len1 > len2)
+                    return 1;
+                if(len2 > len1)
+                    return -1;
+                return 0;
+            }
+        });
     }
-
+    
     public void calculateCalories(){
         int calories = 0;
         for(Food meal : breakfast){

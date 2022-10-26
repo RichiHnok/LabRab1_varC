@@ -50,7 +50,7 @@ public class Sandwich extends Food {
             if(filling.hasNext()){
                 System.out.print(", ");
             }else{
-                System.out.println(".");
+                System.out.print("\n");
             }
         }
     }
