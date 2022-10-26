@@ -1,4 +1,4 @@
-public abstract class Food implements Consumable{
+public abstract class Food implements Consumable, Nutritious{
     private String name;
 
     public void setName(String name){

@@ -1,8 +1,22 @@
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.HashMap;
 
 public class Sandwich extends Food {
     private HashSet<String> fillings = new HashSet<>();
+
+    public static HashMap<String, Integer> availableFillings= new HashMap<>(){{
+        put("Ham", 300);
+        put("Cheese", 350);
+        put("Cabbage", 27);
+        put("Egg", 160);
+        put("Tuna", 130);
+        put("Pickles", 24);
+        put("Tomato", 20);
+        put("Sausage", 430);
+        put("Mayonaise", 60);
+        put("Butter", 750);
+    }};
 
     public Sandwich(String[] fillings){
         super("Sandwich");
@@ -39,6 +53,20 @@ public class Sandwich extends Food {
                 System.out.println(".");
             }
         }
+    }
+
+    @Override
+    public void consume(){
+        System.out.print(this + " with");
+        for(String filling : fillings){
+            System.out.print(" " + filling);
+        }
+        System.out.println(" is consumed.");
+    }
+
+    @Override
+    public int calculateCalories(){
+        return 0;
     }
 
     @Override

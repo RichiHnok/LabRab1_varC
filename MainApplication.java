@@ -19,7 +19,11 @@ public class MainApplication {
 
             switch(command){
                 case "-add":
-                    breakfast.addFood(console);
+                    // breakfast.addFood(console);
+                    breakfast.anotherAddFood(breakfast.createMeal(console));
+                    break;
+                case "-consume":
+                    breakfast.consume();
                     break;
                 case "-sort":
                     breakfast.sort();
@@ -28,7 +32,10 @@ public class MainApplication {
                     breakfast.show();
                     break;
                 case "-count":
-                    breakfast.showCount(console);
+                    // breakfast.showCount(console);
+                    // breakfast.anotherCount(breakfast.count(console));
+                    System.out.print("Which meal you want to count?\n");
+                    breakfast.anotherCount(breakfast.count(breakfast.createMeal(console)));
                     break;
                 case "-help":
                     System.out.println("The following commands are available:");
@@ -40,7 +47,7 @@ public class MainApplication {
                     System.out.println("-exit (Completes programm)");
                     break;
                 default :
-                    System.out.println("There is no such command. If you struggle use -help.");
+                    System.out.println("There is no such command. To get know which commands are available use -help.");
                     break;
             }
         }
