@@ -38,8 +38,12 @@ public class Breakfast{
                 // обработка неправильного ввода
             }
             String appleSize = mealParts.nextToken();
-            Apple apple = new Apple(appleSize);
-            return apple;
+            if(Apple.availableSizes.containsKey(appleSize)){
+                Apple apple = new Apple(appleSize);
+                return apple;
+            }else{
+                // обработка неправаильного ввода
+            }
 
         }else if(meal.equals("Cheese")){
             Cheese cheese = new Cheese();
@@ -54,85 +58,17 @@ public class Breakfast{
         breakfast.add(food);
     }
 
-    // public void addFood(Scanner console){
-
-    //     String input = console.nextLine();
-    //     StringTokenizer mealParts = new StringTokenizer(input, "/");
-    //     String meal = mealParts.nextToken();
-
-    //     if(meal.equals("Sandwich")){
-    //         if(mealParts.countTokens() < 1){
-    //             // обратка сэндвича без начинок
-    //         }
-    //         String[] fillings = new String[mealParts.countTokens()];
-    //         int amountOfFillings = mealParts.countTokens();
-    //         for(int i=0; i < amountOfFillings; i++){
-    //             String temp = mealParts.nextToken();
-    //             if(Sandwich.availableFillings.containsKey(temp))
-    //                 fillings[i] = temp;
-    //             else{
-    //                 // обработка неправильного ввода
-    //             }
-    //         }
-    //         Sandwich sandwich = new Sandwich(fillings);
-    //         breakfast.add(sandwich); 
-        
-    //     }else if(meal.equals("Apple")){
-    //         if(mealParts.countTokens() != 1){
-    //             // обработка неправильного ввода
-    //         }
-    //         String appleSize = mealParts.nextToken();
-    //         Apple apple = new Apple(appleSize);
-    //         breakfast.add(apple);
-
-    //     }else if(meal.equals("Cheese")){
-    //         Cheese cheese = new Cheese();
-    //         breakfast.add(cheese);
-
-    //     }else{
-    //         // Здесь должен быть обработка некорректного ввода
-    //     }
-    // }
-
-    public void consume(){
-        
+    public void consume(Food food){
+        Food consumableFood = food;
+        int index = breakfast.indexOf(consumableFood);
+        if(index != -1){
+            breakfast.remove(index).consume();
+        }else{
+            System.out.println("Breakfast doesn't consists " + consumableFood.toString());
+        }
     }
 
     public int count(Food food){
-        // System.out.print("Which meal you want to count?\n> ");
-        // String input = console.nextLine();
-
-        // Object countingMeal = new Object();
-        // StringTokenizer mealParts = new StringTokenizer(input, "/");
-        // String meal = mealParts.nextToken();
-        // if(meal.equals("Sandwich")){
-        //     if(mealParts.countTokens() < 1){
-        //         // обратка сэндвича без начинок
-        //     }
-        //     String[] fillings = new String[mealParts.countTokens()];
-        //     for(int i=0; i < mealParts.countTokens(); i++){
-        //         String temp = mealParts.nextToken();
-        //         if(Sandwich.availableFillings.containsKey(temp))
-        //             fillings[i] = temp;
-        //         else{
-        //             // обработка неправильного ввода
-        //         }
-        //     }
-        //     countingMeal = new Sandwich(fillings);
-
-        // }else if(meal.equals("Apple")){
-        //     if(mealParts.countTokens() != 1){
-        //         // обработка неправильного ввода
-        //     }
-        //     String appleSize = mealParts.nextToken();
-        //     countingMeal = new Apple(appleSize);
-
-        // }else if(meal.equals("Cheese")){
-        //     countingMeal = new Cheese();
-
-        // }else{
-
-        // }
         Food countingMeal = food;
 
         int counter=0;
@@ -177,13 +113,11 @@ public class Breakfast{
         // });
     }
 
-    // public void calculateCalories(){
-    //     int calories = 0;
-    //     for(Food meal : breakfast){
-    //         for(String mealPart : (meal.getClass() meal).getFillings()){
-
-    //         }
-    //     }
-    //     System.out.println("Breakfast contains " + calories);
-    // }
+    public void calculateCalories(){
+        int calories = 0;
+        for(Food meal : breakfast){
+            calories += meal.calculateCalories();
+        }
+        System.out.println("Breakfast contains in total " + calories + " calories");
+    }
 }

@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 public class Apple extends Food {
-    public HashMap<String, Integer> sizes = new HashMap<>(){{
+    public static HashMap<String, Integer> availableSizes = new HashMap<>(){{
         put("Small", 10);
         put("Medium", 15);
         put("Big", 20);
@@ -24,7 +24,14 @@ public class Apple extends Food {
     
     @Override
     public void consume(){
-        System.out.println(size + getName() + "is consumed");
+        System.out.println(toString() + "is consumed");
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder meal = new StringBuilder();
+        meal.append(size + " " + getName());
+        return meal.toString();
     }
 
     @Override
@@ -34,7 +41,9 @@ public class Apple extends Food {
 
     @Override
     public int calculateCalories(){
-        return 0;
+        int calories = 0;
+        calories += availableSizes.get(size);
+        return calories;
     }
 
     @Override

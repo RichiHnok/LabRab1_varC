@@ -34,4 +34,7 @@ public abstract class Food implements Consumable, Nutritious{
 
     @Override
     public void consume(){}
+
+    @Override
+    public abstract int calculateCalories(); 
 }

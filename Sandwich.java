@@ -57,16 +57,27 @@ public class Sandwich extends Food {
 
     @Override
     public void consume(){
-        System.out.print(this + " with");
-        for(String filling : fillings){
-            System.out.print(" " + filling);
+        System.out.println(toString() + " is consumed");
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder meal = new StringBuilder();
+        meal.append(getName() + " with ");
+        for(String filling: fillings){
+            meal.append(filling + " ");
         }
-        System.out.println(" is consumed.");
+        return meal.toString();
     }
 
     @Override
     public int calculateCalories(){
-        return 0;
+        int calories = 200;
+        for(String filling : fillings){
+            calories += availableFillings.get(filling);
+        }
+
+        return calories;
     }
 
     @Override

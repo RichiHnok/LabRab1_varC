@@ -20,10 +20,12 @@ public class MainApplication {
             switch(command){
                 case "-add":
                     // breakfast.addFood(console);
+                    System.out.print("Which meal you want to add?\n");
                     breakfast.anotherAddFood(breakfast.createMeal(console));
                     break;
                 case "-consume":
-                    breakfast.consume();
+                    System.out.print("Which meal you want to consume?\n");
+                    breakfast.consume(breakfast.createMeal(console));
                     break;
                 case "-sort":
                     breakfast.sort();
@@ -32,10 +34,11 @@ public class MainApplication {
                     breakfast.show();
                     break;
                 case "-count":
-                    // breakfast.showCount(console);
-                    // breakfast.anotherCount(breakfast.count(console));
                     System.out.print("Which meal you want to count?\n");
                     breakfast.anotherCount(breakfast.count(breakfast.createMeal(console)));
+                    break;
+                case "-calories":
+                    breakfast.calculateCalories();
                     break;
                 case "-help":
                     System.out.println("The following commands are available:");

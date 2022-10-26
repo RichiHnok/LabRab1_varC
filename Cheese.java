@@ -7,7 +7,7 @@ public class Cheese extends Food {
 
     @Override
     public void consume(){
-        System.out.println(getName() + " is consumed.");
+        System.out.println(toString() + " is consumed.");
     }
 
     @Override
