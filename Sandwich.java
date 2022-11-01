@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Sandwich extends Food {
     private HashSet<String> fillings = new HashSet<>();
 
-    public static HashMap<String, Integer> availableFillings= new HashMap<>(){{
+    private static HashMap<String, Integer> availableFillings= new HashMap<>(){{
         put("Ham", 300);
         put("Cheese", 350);
         put("Cabbage", 27);

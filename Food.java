@@ -32,9 +32,5 @@ public abstract class Food implements Consumable, Nutritious{
         return this.name.equals(food.name); // сравниваем поля объектов
     }
 
-    @Override
-    public void consume(){}
-
-    @Override
-    public abstract int calculateCalories(); 
+ 
 }
