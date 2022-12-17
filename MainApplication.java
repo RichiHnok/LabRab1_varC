@@ -42,12 +42,12 @@ public class MainApplication {
                         break;
                     case "-help":
                         System.out.println("The following commands are available:");
-                        System.out.println("-add  (Adds to breakfast another sandwich with 2 fillings)");
-                        System.out.println("-consume  (Removes from breakfast a meal certain meal)");
+                        System.out.println("-add  (Adds to breakfast anoyher product)");
+                        System.out.println("-consume  (Removes from breakfast a certain meal)");
                         System.out.println("-sort  (Sorts list of meals in breakfst by their name length)");
                         System.out.println("-show (This command shows from what meals breakfast consits)");
                         System.out.println("-count  (Counts amount of choosen meal)");
-                        System.out.println("-calories  (This command shows the toatal calories of breakfast )");
+                        System.out.println("-calories  (This command shows the total calories of breakfast )");
                         System.out.println("-help (Show available commands and its functions)");
                         System.out.println("-exit (Completes programm)");
                         break;
